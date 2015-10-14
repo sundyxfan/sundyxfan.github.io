@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于ui-router | 前端曾经踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习中总结的几个点供参考：
+
+管理状态
+状态嵌套和视图嵌套
+多个命名的视图
+路由控制
+组件
+
+
+参考原文：https://github.com/angular-ui/ui-router/wiki
+ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。
+
+在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置
+通过定义controller、template和v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于ui-router">
+<meta property="og:url" content="http://yoursite.com/2015/10/14/ui-router-1/index.html">
+<meta property="og:site_name" content="前端曾经踩过的坑">
+<meta property="og:description" content="学习中总结的几个点供参考：
+
+管理状态
+状态嵌套和视图嵌套
+多个命名的视图
+路由控制
+组件
+
+
+参考原文：https://github.com/angular-ui/ui-router/wiki
+ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。
+
+在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置
+通过定义controller、template和v">
+<meta property="og:updated_time" content="2015-10-14T08:16:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于ui-router">
+<meta name="twitter:description" content="学习中总结的几个点供参考：
+
+管理状态
+状态嵌套和视图嵌套
+多个命名的视图
+路由控制
+组件
+
+
+参考原文：https://github.com/angular-ui/ui-router/wiki
+ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。
+
+在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置
+通过定义controller、template和v">
+  
+    <link rel="alternative" href="/atom.xml" title="前端曾经踩过的坑" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sundyxfan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一杯茶，一片黄昏；一简书，一杯淡茶。守着那一份淡定，品读属于自己的寂寞。保持淡定，才能欣赏到最美丽的风景！保持淡定，人生从此不再寂寞。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/sundyxfan" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.google.com" title="mail">mail</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/angular-ui-router/" style="font-size: 10px;">angular ui-router</a> <a href="/tags/node-node-inspector/" style="font-size: 10px;">node node-inspector</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">前端农民工一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sundyxfan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sundyxfan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一杯茶，一片黄昏；一简书，一杯淡茶。守着那一份淡定，品读属于自己的寂寞。保持淡定，才能欣赏到最美丽的风景！保持淡定，人生从此不再寂寞。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/sundyxfan" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.google.com" title="mail">mail</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-ui-router-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/14/ui-router-1/" class="article-date">
+  	<time datetime="2015-10-14T08:02:16.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于ui-router
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular-ui-router/">angular ui-router</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="学习中总结的几个点供参考：">学习中总结的几个点供参考：</h2><blockquote>
+<ul>
+<li>管理状态</li>
+<li>状态嵌套和视图嵌套</li>
+<li>多个命名的视图</li>
+<li>路由控制</li>
+<li>组件</li>
+</ul>
+</blockquote>
+<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki</a></p>
+<p>ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。</p>
+<ul>
+<li>在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置</li>
+<li>通过定义<code>controller</code>、<code>template</code>和<code>view</code>等属性，来定义指定位置的用户界面和界面行为</li>
+<li>通过嵌套的方式来解决页面中的一些重复出现的部位</li>
+</ul>
+<h2 id="最简单的形式">最简单的形式</h2><p>模板可以通过下面这种最简单的方式来指定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- in index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-controller</span>=<span class="value">"MainCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in app-states.js (or whatever you want to name it)</span></span><br><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;My Contacts&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="模板将被插入哪里?">模板将被插入哪里?</h3><p>状态被激活时，它的模板会自动插入到父状态对应的模板中包含<code>ui-view</code>属性的元素内部。如果是顶层的状态，那么它的父模板就是<code>index.html</code>。</p>
+<h3 id="激活状态">激活状态</h3><p>有三种方法来激活状态：</p>
+<ol>
+<li>调用<code>$state.go()</code>方法，这是一个高级的便利方法；</li>
+<li>点击包含<code>ui-sref</code>指令的链接；</li>
+<li>导航到与状态相关联的 url。</li>
+</ol>
+<h2 id="Templates_模板">Templates 模板</h2><p>可以通过下面几种方法来配置一个状态的模板。</p>
+<p>方法一：配置<code>template</code>属性，指定一段 HTML 字符串，这人是设置模板的最简单的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;My Contacts&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>方法二：配置<code>templateUrl</code>属性，来加载指定位置的模板，<strong>这是设置模板的常用方法。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  templateUrl: <span class="string">'contacts.html'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>templateUrl</code>的值也可以是一个函数返回的url，函数带一个预设参数<code>stateParams</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  templateUrl: <span class="function"><span class="keyword">function</span> (<span class="params">stateParams</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'/partials/contacts.'</span> + stateParams.filterBy + <span class="string">'.html'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>方法三：通过<code>templateProvider</code>函数返回模板的 HTML。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  templateProvider: <span class="function"><span class="keyword">function</span> (<span class="params">$timeout, $stateParams</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'&lt;h1&gt;'</span> + $stateParams.contactId + <span class="string">'&lt;/h1&gt;'</span></span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果想在状态被激活前，让<code>&lt;ui-view&gt;</code>有一些默认的内容，当状态被激活之后默认内容将被状态对应的模板替换。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ui-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">i</span>&gt;</span>Some content will load here!<span class="tag">&lt;/<span class="title">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ui-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Controllers_控制器">Controllers 控制器</h2><p>可以为模板指定一个控制器（controller）。<strong>警告</strong>：控制器不会被实例化如果模板没有定义。</p>
+<p>设置控制器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">  controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    $scope.title = <span class="string">'My Contacts'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果在模块中已经定义了一个控制器，只需要指定控制器的名称即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: ...,</span><br><span class="line">  controller: <span class="string">'ContactsCtrl'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用<code>controllerAs</code>语法：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: ...,</span><br><span class="line">  controller: <span class="string">'ContactsCtrl as contact'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>对于更高级的需要，可以使用<code>controllerProvider</code>来动态返回一个控制器函数或字符串：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: ...,</span><br><span class="line">  controllerProvider: <span class="function"><span class="keyword">function</span>(<span class="params">$stateParams</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> ctrlName = $stateParams.type + <span class="string">"Controller"</span>;</span><br><span class="line">      <span class="keyword">return</span> ctrlName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>控制器可以使用<code>$scope.on()</code>方法来监听事件状态转换。</p>
+<p>控制器可以根据需要实例化，当相应的<code>scope</code>被创建时。例如，当用户点击一个url手动导航一个状态时，<code>$stateProvider</code>将加载对应的模板到视图中，并且将控制器和模板的<code>scope</code>绑定在一起。</p>
+<h2 id="解决器_Resolve">解决器 Resolve</h2><p>可以使用<code>resolve</code>为控制器提供可选的依赖注入项。</p>
+<p><code>resolve</code>配置项是一个由<code>key/value</code>构成的对象。</p>
+<ul>
+<li>key – {string}：注入控制器的依赖项名称。</li>
+<li>factory - {string|function}：<ul>
+<li>string：一个服务的别名</li>
+<li>function：函数的返回值将作为依赖注入项，如果函数是一个耗时的操作，那么控制器必须等待该函数执行完成（be resolved）才会被实例化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="例子">例子</h3><p>在<code>controller</code>实例化之前，<code>resolve</code>中的每一个对象都必须 be resolved，请注意每个 resolved object 是怎样作为参数注入到控制器中的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">'myState'</span>, &#123;</span><br><span class="line">      resolve:&#123;</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Example using function with simple return value.</span></span><br><span class="line">         <span class="comment">// Since it's not a promise, it resolves immediately.</span></span><br><span class="line">         simpleObj:  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;value: <span class="string">'simple!'</span>&#125;;</span><br><span class="line">         &#125;,</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Example using function with returned promise.</span></span><br><span class="line">         <span class="comment">// 这是一种典型使用方式</span></span><br><span class="line">         <span class="comment">// 请给函数注入任何想要的服务依赖，例如 $http</span></span><br><span class="line">         promiseObj:  <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>)</span>&#123;</span><br><span class="line">            <span class="comment">// $http returns a promise for the url data</span></span><br><span class="line">            <span class="keyword">return</span> $http(&#123;method: <span class="string">'GET'</span>, url: <span class="string">'/someUrl'</span>&#125;);</span><br><span class="line">         &#125;,</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Another promise example. </span></span><br><span class="line">         <span class="comment">// 如果想对返回结果进行处理， 可以使用 .then 方法</span></span><br><span class="line">         <span class="comment">// 这是另一种典型使用方式</span></span><br><span class="line">         promiseObj2:  <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $http(&#123;method: <span class="string">'GET'</span>, url: <span class="string">'/someUrl'</span>&#125;)</span><br><span class="line">               .then (<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">                   <span class="keyword">return</span> doSomeStuffFirst(data);</span><br><span class="line">               &#125;);</span><br><span class="line">         &#125;,        </span><br><span class="line"></span><br><span class="line">         <span class="comment">// 使用服务名的例子，这将在模块中查找名称为 'translations' 的服务，并返回该服务 </span></span><br><span class="line">         <span class="comment">// Note: The service could return a promise and</span></span><br><span class="line">         <span class="comment">// it would work just like the example above</span></span><br><span class="line">         translations: <span class="string">"translations"</span>,</span><br><span class="line"></span><br><span class="line">         <span class="comment">// 将服务模块作为解决函数的依赖项，通过参数传入</span></span><br><span class="line">         <span class="comment">// 提示：依赖项 $stateParams 代表 url 中的参数</span></span><br><span class="line">         translations2: <span class="function"><span class="keyword">function</span>(<span class="params">translations, $stateParams</span>)</span>&#123;</span><br><span class="line">             <span class="comment">// Assume that getLang is a service method</span></span><br><span class="line">             <span class="comment">// that uses $http to fetch some translations.</span></span><br><span class="line">             <span class="comment">// Also assume our url was "/:lang/home".</span></span><br><span class="line">             translations.getLang($stateParams.lang);</span><br><span class="line">         &#125;,</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Example showing returning of custom made promise</span></span><br><span class="line">         greeting: <span class="function"><span class="keyword">function</span>(<span class="params">$q, $timeout</span>)</span>&#123;</span><br><span class="line">             <span class="keyword">var</span> deferred = $q.defer();</span><br><span class="line">             $timeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                 deferred.resolve(<span class="string">'Hello!'</span>);</span><br><span class="line">             &#125;, <span class="number">1000</span>);</span><br><span class="line">             <span class="keyword">return</span> deferred.promise;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 控制器将等待上面的解决项都被解决后才被实例化</span></span><br><span class="line">      controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, simpleObj, promiseObj, promiseObj2, translations, translations2, greeting</span>)</span>&#123;</span><br><span class="line">          </span><br><span class="line">          $scope.simple = simpleObj.value;</span><br><span class="line"></span><br><span class="line">          <span class="comment">// 这里可以放心使用 promiseObj 中的对象</span></span><br><span class="line">          $scope.items = promiseObj.items;</span><br><span class="line">          $scope.items = promiseObj2.items;</span><br><span class="line"></span><br><span class="line">          $scope.title = translations.getLang(<span class="string">"english"</span>).title;</span><br><span class="line">          $scope.title = translations2.title;</span><br><span class="line"></span><br><span class="line">          $scope.greeting = greeting;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="为_$state_对象提供自定义数据">为 $state 对象提供自定义数据</h2><p>可以给 $state 对象提供自定义数据（建议使用<code>data</code>属性，以免冲突）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于对象和基于字符串定义 state 的例子</span></span><br><span class="line"><span class="keyword">var</span> contacts = &#123; </span><br><span class="line">    name: <span class="string">'contacts'</span>,</span><br><span class="line">    templateUrl: <span class="string">'contacts.html'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        customData1: <span class="number">5</span>,</span><br><span class="line">        customData2: <span class="string">"blue"</span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line">$stateProvider</span><br><span class="line">  .state(contacts)</span><br><span class="line">  .state(<span class="string">'contacts.list'</span>, &#123;</span><br><span class="line">    templateUrl: <span class="string">'contacts.list.html'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        customData1: <span class="number">44</span>,</span><br><span class="line">        customData2: <span class="string">"red"</span></span><br><span class="line">    &#125; </span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>可以通过下面的方式来访问上面定义的数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ctrl</span>(<span class="params">$state</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log($state.current.data.customData1) <span class="comment">// 输出 5;</span></span><br><span class="line">    <span class="built_in">console</span>.log($state.current.data.customData2) <span class="comment">// 输出 "blue";</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="onEnter_和_onExit_回调函数">onEnter 和 onExit 回调函数</h2><p><code>onEnter</code>和<code>onExit</code>回调函数是可选配置项，分别称为当一个状态变得活跃的和不活跃的时候触发。回调函数也可以访问所有解决依赖项。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$stateProvider.state(<span class="string">"contacts"</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">  resolve: &#123; title: <span class="string">'My Contacts'</span> &#125;,</span><br><span class="line">  controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, title</span>)</span>&#123;</span><br><span class="line">    $scope.title = <span class="string">'My Contacts'</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// title 是解决依赖项，这里也是可以使用解决依赖项的</span></span><br><span class="line">  onEnter: <span class="function"><span class="keyword">function</span>(<span class="params">title</span>)</span>&#123; </span><br><span class="line">    <span class="keyword">if</span>(title)&#123; ... <span class="keyword">do</span> something ... &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// title 是解决依赖项，这里也是可以使用解决依赖项的</span></span><br><span class="line">  onExit: <span class="function"><span class="keyword">function</span>(<span class="params">title</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(title)&#123; ... <span class="keyword">do</span> something ... &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="State_Change_Events_状态改变事件">State Change Events 状态改变事件</h2><p>所有这些事件都是在<code>$rootScope</code>作用域触发</p>
+<ul>
+<li><strong>$stateChangeStart</strong> - 当模板开始解析之前触发</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$rootScope.$on(<span class="string">'$stateChangeStart'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, toState, toParams, fromState, fromParams</span>)</span>&#123; ... &#125;)</span><br></pre></td></tr></table></figure>
+<p>注意：使用<code>event.preventDefault()</code>可以阻止模板解析的发生<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$rootScope.$on(<span class="string">'$stateChangeStart'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, toState, toParams, fromState, fromParams</span>)</span>&#123; </span><br><span class="line">    event.preventDefault(); </span><br><span class="line">    <span class="comment">// transitionTo() promise will be rejected with </span></span><br><span class="line">    <span class="comment">// a 'transition prevented' error</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>$stateNotFound</strong> - <code>v0.3.0</code> - 在 transition 时通过状态名查找状态，当状态无法找到时发生。该事件在 scope 链上广播，只允许一次处理错误的机会。<code>unfoundState</code>将作为参数传入事件监听函数，下面例子中可以看到<code>unfoundState</code>的三个属性。使用 <code>event.preventDefault()</code> 来阻止模板解析，</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// somewhere, assume lazy.state has not been defined</span></span><br><span class="line">$state.go(<span class="string">"lazy.state"</span>, &#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;, &#123;inherit:<span class="literal">false</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// somewhere else</span></span><br><span class="line">$scope.$on(<span class="string">'$stateNotFound'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, unfoundState, fromState, fromParams</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(unfoundState.to); <span class="comment">// "lazy.state"</span></span><br><span class="line">    <span class="built_in">console</span>.log(unfoundState.toParams); <span class="comment">// &#123;a:1, b:2&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(unfoundState.options); <span class="comment">// &#123;inherit:false&#125; + default options</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>$stateChangeSuccess</strong> - 当模板解析完成后触发</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$rootScope.$on(<span class="string">'$stateChangeSuccess'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, toState, toParams, fromState, fromParams</span>)</span>&#123; ... &#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>$stateChangeError</strong> - 当模板解析过程中发生错误时触发</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$rootScope.$on(<span class="string">'$stateChangeError'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, toState, toParams, fromState, fromParams, error</span>)</span>&#123; ... &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="View_Load_Events_视图加载事件">View Load Events 视图加载事件</h2><ul>
+<li><strong>$viewContentLoading</strong> - 当视图开始加载，DOM渲染完成之前触发，该事件将在<code>$scope</code>链上广播此事件。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$scope.$on(<span class="string">'$viewContentLoading'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event, viewConfig</span>)</span>&#123; </span><br><span class="line">    <span class="comment">// Access to all the view config properties.</span></span><br><span class="line">    <span class="comment">// and one special property 'targetView'</span></span><br><span class="line">    <span class="comment">// viewConfig.targetView </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>$viewContentLoaded</strong> - 当视图加载完成，DOM渲染完成之后触发，视图所在的<code>$scope</code>发出该事件。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.$on(<span class="string">'$viewContentLoading'</span>, </span><br><span class="line">$scope.$on(<span class="string">'$viewContentLoaded'</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; ... &#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/08/node-debug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node-debug</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ui-router-1" data-title="关于ui-router" data-url="http://yoursite.com/2015/10/14/ui-router-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 sundyxfan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

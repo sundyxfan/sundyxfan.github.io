@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/node-node-inspector/" style="font-size: 10px;">node node-inspector</a>
+						<a href="/tags/angular-ui-router/" style="font-size: 10px;">angular ui-router</a> <a href="/tags/node-node-inspector/" style="font-size: 10px;">node node-inspector</a>
 					</div>
 				</section>
 				
@@ -195,6 +195,82 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ui-router-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/14/ui-router-1/" class="article-date">
+  	<time datetime="2015-10-14T08:02:16.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/14/ui-router-1/">关于ui-router</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="学习中总结的几个点供参考：">学习中总结的几个点供参考：</h2><blockquote>
+<ul>
+<li>管理状态</li>
+<li>状态嵌套和视图嵌套</li>
+<li>多个命名的视图</li>
+<li>路由控制</li>
+<li>组件</li>
+</ul>
+</blockquote>
+<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki">https://github.com/angular-ui/ui-router/wiki</a></p>
+<p>ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。</p>
+<ul>
+<li>在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置</li>
+<li>通过定义<code>controller</code>、<code>template</code>和<code>view</code>等属性，来定义指定位置的用户界面和界面行为</li>
+<li>通过嵌套的方式来解决页面中的一些重复出现的部位</li>
+</ul>
+<h2 id="最简单的形式">最简单的形式</h2><p>模板可以通过下面这种最简单的方式来指定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- in index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-controller</span>=<span class="value">"MainCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in app-states.js (or whatever you want to name it)</span></span><br><span class="line">$stateProvider.state(<span class="string">'contacts'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;My Contacts&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular-ui-router/">angular ui-router</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/14/ui-router-1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-node-debug" class="article article-type-post" itemscope itemprop="blogPost">
   
