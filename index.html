@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular-ui-router/" style="font-size: 10px;">angular ui-router</a> <a href="/tags/node-node-inspector/" style="font-size: 10px;">node node-inspector</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a>
+						<a href="/tags/angular-ui-router/" style="font-size: 10px;">angular ui-router</a> <a href="/tags/node-node-inspector/" style="font-size: 10px;">node node-inspector</a> <a href="/tags/node-require/" style="font-size: 10px;">node require</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a>
 					</div>
 				</section>
 				
@@ -195,6 +195,99 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-require系列一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/23/require系列一/" class="article-date">
+  	<time datetime="2015-10-23T08:29:17.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/23/require系列一/">require 用法系列-</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>平时在做基于node开发时，遇到require(‘xx’),require(‘./XX’)</p>
+</blockquote>
+<ul>
+<li><p>xx是内置模块 </p>
+<blockquote>
+<p>比如require(‘http’),直接返回该模块</p>
+</blockquote>
+</li>
+<li><p>xx 以”./“ or “/“开头</p>
+<blockquote>
+<p>根据x所在的模块确定x的路径，依次查找下面文件，只要有一个存在，就返回，不在继续执行</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>x</span><br><span class="line"><span class="bullet">* </span>x.js</span><br><span class="line"><span class="bullet">* </span>x.json</span><br><span class="line"><span class="bullet">* </span>x.node</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>x是目录，依次查找目录，只要其中有一个存在，就返回该文件</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>x/package.json(main字段)</span><br><span class="line"><span class="bullet">* </span>x/index.js</span><br><span class="line"><span class="bullet">* </span>x/index.json</span><br><span class="line"><span class="bullet">* </span>x/index.node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>x不带路径</p>
+<blockquote>
+<p>根据x所在的父模块，确定x可能的安装目录</p>
+</blockquote>
+</li>
+<li><p>抛出“not found”</p>
+</li>
+</ul>
+<h3 id="demo:">demo:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /home/aa/bb/cc.js</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'dd'</span>); <span class="comment">// 属于第三种情况</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>首先，确定dd的绝对路径可能是下面的几种情况。依次搜索每一个目录</p>
+</blockquote>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* <span class="regexp">/home/aa</span><span class="regexp">/bb/mode</span>_modules/dd</span><br><span class="line">* <span class="regexp">/home/aa</span><span class="regexp">/node_modules/dd</span></span><br><span class="line">* <span class="regexp">/home/node</span>_modules/dd</span><br><span class="line">* <span class="regexp">/node_modules/dd</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1，搜索时，node先将dd当成文件名，依次尝试加载下面的这些文件，只要有一个成功就返回</p>
+</blockquote>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>dd</span><br><span class="line"><span class="bullet">* </span>dd.js</span><br><span class="line"><span class="bullet">* </span>dd.json</span><br><span class="line"><span class="bullet">* </span>dd.node</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2，如果都不成功，说明dd是目录名，于是依次尝试加载下面这些文件<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>dd/package.json(main字段)</span><br><span class="line"><span class="bullet">* </span>dd/index.js</span><br><span class="line"><span class="bullet">* </span>dd/index.json</span><br><span class="line"><span class="bullet">* </span>dd/index.node</span><br></pre></td></tr></table></figure></p>
+<p>3，如果所有目录中，都无法找到dd对应的文件和目录，就抛出一个cuo wu</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-require/">node require</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-ask-question" class="article article-type-post" itemscope itemprop="blogPost">
   

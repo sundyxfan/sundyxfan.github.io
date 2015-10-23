@@ -3,24 +3,60 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端基础篇 | 前端曾经踩过的坑</title>
+  <title>require 用法系列- | 前端曾经踩过的坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
+  <meta name="description" content="平时在做基于node开发时，遇到require(‘xx’),require(‘./XX’)
+
+
+xx是内置模块 
+
+比如require(‘http’),直接返回该模块
+
+
+xx 以”./“ or “/“开头
+
+根据x所在的模块确定x的路径，依次查找下面文件，只要有一个存在，就返回，不在继续执行
+1234* x* x.js* x.json* x.node
+
+
+x是目录，依次查找目录，只要其中有一个存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端基础篇">
-<meta property="og:url" content="http://www.sundyxfan.club/2015/10/01/前端基础篇/index.html">
+<meta property="og:title" content="require 用法系列-">
+<meta property="og:url" content="http://www.sundyxfan.club/2015/10/23/require系列一/index.html">
 <meta property="og:site_name" content="前端曾经踩过的坑">
-<meta property="og:description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
-<meta property="og:updated_time" content="2015-10-01T08:28:15.000Z">
+<meta property="og:description" content="平时在做基于node开发时，遇到require(‘xx’),require(‘./XX’)
+
+
+xx是内置模块 
+
+比如require(‘http’),直接返回该模块
+
+
+xx 以”./“ or “/“开头
+
+根据x所在的模块确定x的路径，依次查找下面文件，只要有一个存在，就返回，不在继续执行
+1234* x* x.js* x.json* x.node
+
+
+x是目录，依次查找目录，只要其中有一个存">
+<meta property="og:updated_time" content="2015-10-23T08:59:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端基础篇">
-<meta name="twitter:description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
+<meta name="twitter:title" content="require 用法系列-">
+<meta name="twitter:description" content="平时在做基于node开发时，遇到require(‘xx’),require(‘./XX’)
+
+
+xx是内置模块 
+
+比如require(‘http’),直接返回该模块
+
+
+xx 以”./“ or “/“开头
+
+根据x所在的模块确定x的路径，依次查找下面文件，只要有一个存在，就返回，不在继续执行
+1234* x* x.js* x.json* x.node
+
+
+x是目录，依次查找目录，只要其中有一个存">
   
     <link rel="alternative" href="/atom.xml" title="前端曾经踩过的坑" type="application/atom+xml">
   
@@ -201,11 +237,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-前端基础篇" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-require系列一" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/01/前端基础篇/" class="article-date">
-  	<time datetime="2015-10-01T08:26:54.000Z" itemprop="datePublished">2015-10-01</time>
+      <a href="/2015/10/23/require系列一/" class="article-date">
+  	<time datetime="2015-10-23T08:29:17.000Z" itemprop="datePublished">2015-10-23</time>
 </a>
     </div>
   
@@ -218,7 +254,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      前端基础篇
+      require 用法系列-
     </h1>
   
 
@@ -226,6 +262,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-require/">node require</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -234,9 +274,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前端是一种技术问题较少、工程问题较多的软件开发领域。</p>
-<p>当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：</p>
-<p>大体量：多功能、多页面、多状态、多系统；<br>大规模：多人甚至多团队合作开发；<br>高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。</p>
+        <blockquote>
+<p>平时在做基于node开发时，遇到require(‘xx’),require(‘./XX’)</p>
+</blockquote>
+<ul>
+<li><p>xx是内置模块 </p>
+<blockquote>
+<p>比如require(‘http’),直接返回该模块</p>
+</blockquote>
+</li>
+<li><p>xx 以”./“ or “/“开头</p>
+<blockquote>
+<p>根据x所在的模块确定x的路径，依次查找下面文件，只要有一个存在，就返回，不在继续执行</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>x</span><br><span class="line"><span class="bullet">* </span>x.js</span><br><span class="line"><span class="bullet">* </span>x.json</span><br><span class="line"><span class="bullet">* </span>x.node</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>x是目录，依次查找目录，只要其中有一个存在，就返回该文件</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>x/package.json(main字段)</span><br><span class="line"><span class="bullet">* </span>x/index.js</span><br><span class="line"><span class="bullet">* </span>x/index.json</span><br><span class="line"><span class="bullet">* </span>x/index.node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>x不带路径</p>
+<blockquote>
+<p>根据x所在的父模块，确定x可能的安装目录</p>
+</blockquote>
+</li>
+<li><p>抛出“not found”</p>
+</li>
+</ul>
+<h3 id="demo:">demo:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /home/aa/bb/cc.js</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'dd'</span>); <span class="comment">// 属于第三种情况</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>首先，确定dd的绝对路径可能是下面的几种情况。依次搜索每一个目录</p>
+</blockquote>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* <span class="regexp">/home/aa</span><span class="regexp">/bb/mode</span>_modules/dd</span><br><span class="line">* <span class="regexp">/home/aa</span><span class="regexp">/node_modules/dd</span></span><br><span class="line">* <span class="regexp">/home/node</span>_modules/dd</span><br><span class="line">* <span class="regexp">/node_modules/dd</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1，搜索时，node先将dd当成文件名，依次尝试加载下面的这些文件，只要有一个成功就返回</p>
+</blockquote>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>dd</span><br><span class="line"><span class="bullet">* </span>dd.js</span><br><span class="line"><span class="bullet">* </span>dd.json</span><br><span class="line"><span class="bullet">* </span>dd.node</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2，如果都不成功，说明dd是目录名，于是依次尝试加载下面这些文件<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>dd/package.json(main字段)</span><br><span class="line"><span class="bullet">* </span>dd/index.js</span><br><span class="line"><span class="bullet">* </span>dd/index.json</span><br><span class="line"><span class="bullet">* </span>dd/index.node</span><br></pre></td></tr></table></figure></p>
+<p>3，如果所有目录中，都无法找到dd对应的文件和目录，就抛出一个cuo wu</p>
+</blockquote>
 
       
     </div>
@@ -246,18 +322,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/10/08/node-debug/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          node-debug
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/09/28/conifg-list/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">conifg_list</div>
+    <a href="/2015/10/14/ask-question/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">提问的智慧</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +353,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="前端基础篇" data-title="前端基础篇" data-url="http://www.sundyxfan.club/2015/10/01/前端基础篇/"></div>
+	<div class="ds-thread" data-thread-key="require系列一" data-title="require 用法系列-" data-url="http://www.sundyxfan.club/2015/10/23/require系列一/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
