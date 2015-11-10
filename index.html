@@ -224,7 +224,7 @@
       
         <h2 id="1、设置Finder隐藏文件显示隐藏：">1、设置Finder隐藏文件显示隐藏：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>同理将上面的TRUE 改回FALSE 就可以恢复隐藏</p>
+<p>同理将上面的<code>TRUE</code> 改回<code>FALSE</code> 就可以恢复隐藏</p>
 </blockquote>
 <h2 id="2、设置Finder窗口状态栏下显示完整路径：">2、设置Finder窗口状态栏下显示完整路径：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
 <blockquote>
