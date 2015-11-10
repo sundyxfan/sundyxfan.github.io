@@ -3,24 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>设置finder显示隐藏文件 | 前端曾经踩过的坑</title>
+  <title>设置Mac Finder | 前端曾经踩过的坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法一：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
+  <meta name="description" content="设置Finder隐藏文件显示隐藏：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
 
-同理将上面的TRUE 改回FALSE 就可以恢复隐藏">
+同理将上面的TRUE 改回FALSE 就可以恢复隐藏
+
+设置Finder窗口状态栏下显示完整路径：12$ defaults write com.apple.finder _FXShowPosixPathInTitl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设置finder显示隐藏文件">
+<meta property="og:title" content="设置Mac Finder">
 <meta property="og:url" content="http://www.sundyxfan.club/2015/11/10/setFinderConfig/index.html">
 <meta property="og:site_name" content="前端曾经踩过的坑">
-<meta property="og:description" content="方法一：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
+<meta property="og:description" content="设置Finder隐藏文件显示隐藏：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
 
-同理将上面的TRUE 改回FALSE 就可以恢复隐藏">
-<meta property="og:updated_time" content="2015-11-10T02:35:24.000Z">
+同理将上面的TRUE 改回FALSE 就可以恢复隐藏
+
+设置Finder窗口状态栏下显示完整路径：12$ defaults write com.apple.finder _FXShowPosixPathInTitl">
+<meta property="og:updated_time" content="2015-11-10T02:43:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设置finder显示隐藏文件">
-<meta name="twitter:description" content="方法一：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
+<meta name="twitter:title" content="设置Mac Finder">
+<meta name="twitter:description" content="设置Finder隐藏文件显示隐藏：12$ defaults write com.apple.finder AppleShowAllFiles TRUE$ killall Finder
 
-同理将上面的TRUE 改回FALSE 就可以恢复隐藏">
+同理将上面的TRUE 改回FALSE 就可以恢复隐藏
+
+设置Finder窗口状态栏下显示完整路径：12$ defaults write com.apple.finder _FXShowPosixPathInTitl">
   
     <link rel="alternative" href="/atom.xml" title="前端曾经踩过的坑" type="application/atom+xml">
   
@@ -218,7 +224,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      设置finder显示隐藏文件
+      设置Mac Finder
     </h1>
   
 
@@ -238,11 +244,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="方法一：">方法一：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+        <h2 id="设置Finder隐藏文件显示隐藏：">设置Finder隐藏文件显示隐藏：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>同理将上面的TRUE 改回FALSE 就可以恢复隐藏</p>
 </blockquote>
-
+<h2 id="设置Finder窗口状态栏下显示完整路径：">设置Finder窗口状态栏下显示完整路径：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>恢复设置</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults delete com.apple.finder _FXShowPosixPathInTitle</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -282,7 +292,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="setFinderConfig" data-title="设置finder显示隐藏文件" data-url="http://www.sundyxfan.club/2015/11/10/setFinderConfig/"></div>
+	<div class="ds-thread" data-thread-key="setFinderConfig" data-title="设置Mac Finder" data-url="http://www.sundyxfan.club/2015/11/10/setFinderConfig/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

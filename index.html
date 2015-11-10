@@ -213,7 +213,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/10/setFinderConfig/">设置finder显示隐藏文件</a>
+      <a class="article-title" href="/2015/11/10/setFinderConfig/">设置Mac Finder</a>
     </h1>
   
 
@@ -222,11 +222,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="方法一：">方法一：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+        <h2 id="设置Finder隐藏文件显示隐藏：">设置Finder隐藏文件显示隐藏：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>同理将上面的TRUE 改回FALSE 就可以恢复隐藏</p>
 </blockquote>
-
+<h2 id="设置Finder窗口状态栏下显示完整路径：">设置Finder窗口状态栏下显示完整路径：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>恢复设置</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults delete com.apple.finder _FXShowPosixPathInTitle</span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
       
     </div>
     
