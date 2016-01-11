@@ -3,24 +3,57 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端基础篇 | 前端曾经踩过的坑</title>
+  <title>git背后的故事 | 前端曾经踩过的坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
+  <meta name="description" content="git 对象
+blob
+对应仓库的普通文件, 向仓库提交一个文件，将产生一个blob对象
+
+
+tree
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+
+
+commmit
+对应一次提交，做一次commit时，将会产生tree对象
+
+
+tag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端基础篇">
-<meta property="og:url" content="http://www.sundyxfan.club/2015/10/01/前端基础篇/index.html">
+<meta property="og:title" content="git背后的故事">
+<meta property="og:url" content="http://www.sundyxfan.club/2016/01/11/git背后的故事/index.html">
 <meta property="og:site_name" content="前端曾经踩过的坑">
-<meta property="og:description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
-<meta property="og:updated_time" content="2015-10-01T08:28:15.000Z">
+<meta property="og:description" content="git 对象
+blob
+对应仓库的普通文件, 向仓库提交一个文件，将产生一个blob对象
+
+
+tree
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+
+
+commmit
+对应一次提交，做一次commit时，将会产生tree对象
+
+
+tag">
+<meta property="og:updated_time" content="2016-01-11T08:44:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端基础篇">
-<meta name="twitter:description" content="前端是一种技术问题较少、工程问题较多的软件开发领域。
-当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：
-大体量：多功能、多页面、多状态、多系统；大规模：多人甚至多团队合作开发；高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。">
+<meta name="twitter:title" content="git背后的故事">
+<meta name="twitter:description" content="git 对象
+blob
+对应仓库的普通文件, 向仓库提交一个文件，将产生一个blob对象
+
+
+tree
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+
+
+commmit
+对应一次提交，做一次commit时，将会产生tree对象
+
+
+tag">
   
     <link rel="alternative" href="/atom.xml" title="前端曾经踩过的坑" type="application/atom+xml">
   
@@ -201,11 +234,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-前端基础篇" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git背后的故事" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/01/前端基础篇/" class="article-date">
-  	<time datetime="2015-10-01T08:26:54.000Z" itemprop="datePublished">2015-10-01</time>
+      <a href="/2016/01/11/git背后的故事/" class="article-date">
+  	<time datetime="2016-01-11T08:43:12.000Z" itemprop="datePublished">2016-01-11</time>
 </a>
     </div>
   
@@ -218,7 +251,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      前端基础篇
+      git背后的故事
     </h1>
   
 
@@ -226,6 +259,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -234,9 +271,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前端是一种技术问题较少、工程问题较多的软件开发领域。</p>
-<p>当我们要开发一款完整的Web应用时，前端将面临更多的工程问题，比如：</p>
-<p>大体量：多功能、多页面、多状态、多系统；<br>大规模：多人甚至多团队合作开发；<br>高性能：CDN部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏CSS内嵌、HTTP 2.0服务端资源推送。</p>
+        <h2 id="git_对象">git 对象</h2><ul>
+<li>blob<blockquote>
+<p>对应仓库的普通文件, 向仓库提交一个文件，将产生一个blob对象</p>
+</blockquote>
+</li>
+<li>tree<blockquote>
+<p>对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象</p>
+</blockquote>
+</li>
+<li>commmit<blockquote>
+<p>对应一次提交，做一次commit时，将会产生tree对象</p>
+</blockquote>
+</li>
+<li>tag</li>
+</ul>
 
       
     </div>
@@ -246,18 +295,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/10/08/node-debug/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          node-debug
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/09/28/conifg-list/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">conifg_list</div>
+    <a href="/2015/12/02/css-curve/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">详解css动画中的贝塞尔曲线</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +326,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="前端基础篇" data-title="前端基础篇" data-url="http://www.sundyxfan.club/2015/10/01/前端基础篇/"></div>
+	<div class="ds-thread" data-thread-key="git背后的故事" data-title="git背后的故事" data-url="http://www.sundyxfan.club/2016/01/11/git背后的故事/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
