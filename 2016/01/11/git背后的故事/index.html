@@ -11,14 +11,18 @@ blob
 
 
 tree
-对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象，每次提交都会产生新的tree对象
 
 
 commmit
 对应一次提交，做一次commit时，将会产生tree对象
 
 
-tag">
+tag
+
+命令
+查看对用ID对象类型（blog commit tree）
+1$ git cat-file -t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git背后的故事">
 <meta property="og:url" content="http://www.sundyxfan.club/2016/01/11/git背后的故事/index.html">
@@ -29,15 +33,19 @@ blob
 
 
 tree
-对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象，每次提交都会产生新的tree对象
 
 
 commmit
 对应一次提交，做一次commit时，将会产生tree对象
 
 
-tag">
-<meta property="og:updated_time" content="2016-01-11T08:50:52.000Z">
+tag
+
+命令
+查看对用ID对象类型（blog commit tree）
+1$ git cat-file -t">
+<meta property="og:updated_time" content="2016-01-11T09:59:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git背后的故事">
 <meta name="twitter:description" content="git 对象
@@ -46,14 +54,18 @@ blob
 
 
 tree
-对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象
+对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象，每次提交都会产生新的tree对象
 
 
 commmit
 对应一次提交，做一次commit时，将会产生tree对象
 
 
-tag">
+tag
+
+命令
+查看对用ID对象类型（blog commit tree）
+1$ git cat-file -t">
   
     <link rel="alternative" href="/atom.xml" title="前端曾经踩过的坑" type="application/atom+xml">
   
@@ -277,7 +289,7 @@ tag">
 </blockquote>
 </li>
 <li>tree<blockquote>
-<p>对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象</p>
+<p>对应仓库的一个目录, 向仓库中新增一个目录，将产生一个tree对象，每次提交都会产生新的tree对象</p>
 </blockquote>
 </li>
 <li>commmit<blockquote>
@@ -285,6 +297,17 @@ tag">
 </blockquote>
 </li>
 <li>tag</li>
+</ul>
+<h2 id="命令">命令</h2><ul>
+<li><p>查看对用ID对象类型（blog commit tree）</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">cat</span>-<span class="keyword">file</span> -t xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看tree 对象下的有哪些对象</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git ls-tree xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看对应对象的值</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git cat-file <span class="function"><span class="title">commit</span><span class="params">(blob tree)</span></span> xxx</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
